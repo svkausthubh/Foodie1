@@ -1,0 +1,20 @@
+body{
+    animation: ease;
+    background-image: url("./images/bodybg.jpg");
+    background-size: contain;
+}
+header{
+    padding: 50px;
+    font-style: italic;
+}
+section{
+    height: 100vh;
+    background-color: antiquewhite;
+}
+
+
+table thead .thimg{
+    background-image: url(./images/final1.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
