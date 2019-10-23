@@ -6,31 +6,23 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Foodie | Home</title>
     <link rel="stylesheet" href="./bootstraplitera.min.css">
-  <link rel="stylesheet" href="./style1.css">
+  <link rel="stylesheet" href="./stylehp.css">
 </head>
 <body>
         <div class="container">
-            <header class="bg-success  p-3">
+        <header class="bg-success  p-3">
                 <div class="row ">
                   <div class="col-md-6 text-left "><a href="./homepage.php" class="btn btn-default text-white"><h3><i>Foodie</i></h3></a></div>
                   <div class="col-md-6 text-right"> <a class="btn btn-warning " href="index.html">Logout</a></div>
                 </div>
           </header>
                 
-                <section class="hotel-list">
-                    <table class="table shadow table-hover table-bordered">
+                <section class="menu-list">
+                    <table class="table shadow table-hover">
                       <tbody>
-                        <tr>
-                          <td><div><p class="lead">Hotel title</p><p>description of restaurant</p></div></td>
-                          <td>rating</td>
-                        </tr>
-                        <tr>
-                            <td><div><p class="lead">Hotel title</p><p>description of restaurant</p></div></td>
-                            <td>rating</td>
-                          </tr>
-                          <tr>
-                          <td><div><p class="lead">Hotel title</p><p>description of restaurant</p></div></td>
-                          <td>rating</td>
+                        <tr class="bg-white">
+                          <td><div><p class="lead">item title</p><p>item description</p></div></td>
+                          <td>Price</td>
                         </tr>
                           
                       </tbody>
@@ -40,7 +32,7 @@
                 <footer class="bg-dark text-white p-3">
                     <div class="row">
                       <div class="col-md-6 text-left"><a href="./aboutpage.html" class="btn btn-success">About Us</a></div>
-                      <div class="col-md-6 text-right"> &#9400 Copyright , 2019.</div>
+                      <div class="col-md-6 text-right"> &copy;Copyright , 2019.</div>
                     </div>
                   </footer>
               </div>

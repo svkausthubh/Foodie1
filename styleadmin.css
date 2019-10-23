@@ -1,0 +1,15 @@
+body{
+    animation: ease;
+    /* background-image: url("./images/bodybg.jpg"); */
+    background-size: contain;
+}
+header{
+    padding: 50px;
+    font-style: italic;
+}
+section{
+    height: 100vh;
+    /* background-image: url(./images/final2.jpg) ; */
+    background-size: contain;
+    
+}
