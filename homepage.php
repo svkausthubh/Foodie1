@@ -12,7 +12,7 @@ $result = $db->query($query);
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Foodie | Home</title>
     <link rel="stylesheet" href="./bootstraplitera.min.css">
-  <link rel="stylesheet" href="./style1.css">
+  <link rel="stylesheet" href="./stylehp.css">
 </head>
 <body>
         <div class="container">
@@ -28,20 +28,17 @@ $result = $db->query($query);
                       <tbody>
                         <?php
                         while ($row = $result->fetch_assoc()) {?>
-                          <tr>
-                          <a href="./menu.php">
+                          <tr class="bg-white">
                             <td>
-                              <div>
-                                <p class="lead"><?php echo $row["NAME"]; ?></p><p>Location : <?php echo $row["location"]; ?></p>
-                              </div>
+                              <a href="./menu.php" class="btn btn-default btn-block text-left ">
+                                <div>
+                                  <p class="lead"><?php echo $row["NAME"]; ?></p><p>Location : <?php echo $row["location"]; ?></p>
+                                </div>
+                              </a>
                             </td>
                             <td><?php echo $row["RATING"]; ?> / 5</td>
-                          </a>
                           </tr>
-
                         <?php } ?>
-                        
-                          
                       </tbody>
                     </table>
                 </section>

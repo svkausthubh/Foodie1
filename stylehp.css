@@ -9,12 +9,7 @@ header{
 }
 section{
     height: 100vh;
-    background-color: antiquewhite;
-}
-
-
-table thead .thimg{
-    background-image: url(./images/final1.jpg);
+    background-image: url(./images/final2.jpg) ;
     background-size: contain;
-    background-repeat: no-repeat;
+    
 }
