@@ -1,3 +1,11 @@
+<?php
+include("config.php");
+$query = "SELECT * FROM restaurant";
+$result = $db->query($query);
+// $c=1;
+$t;
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,17 +29,40 @@
       <section class="hotel-list">
             <table class="table shadow table-hover">
               <tbody>
-                
-                  <tr class="bg-white">
-                    <td>
-                      <a href="./adminmenu.php" class="btn btn-default btn-block text-left ">
-                        <div>
-                          <p class="lead">Title</p><p>Location : Location</p>
-                        </div>
-                      </a>
-                    </td>
-                    <td class="text-right"><button class="btn btn-danger">Remove</button></td>
-                  </tr>
+                  <?php
+                    while ($row = $result->fetch_assoc()) {?>
+                      <tr class="bg-white">
+                        <td>
+                          <a href="./adminmenu.php" class="btn btn-default btn-block text-left ">
+                            <div>
+                              <p class="lead"><?php echo $row["NAME"]; ?></p><p>Location : <?php echo $row["location"]; ?></p>
+                            </div>
+                          </a>
+                        </td>
+                        
+                        <form action="" method="POST">
+                          <?php 
+                            $t = $row["RES_ID"];
+                           // echo $t; 
+                           // $c = $c+1; ?>
+                          <td class="text-right"><input type="submit" name="<?php echo $t; ?>" value="REMOVE" class="btn btn-danger"></td>
+                        </form>
+                        <?php if (isset($_POST[$t])) {
+                          $del = $t;
+                          echo $del;
+                          $query = "DELETE FROM food WHERE RES_ID = '$del'";
+                          // // echo "s";
+                          $run = $db->query($query);
+                          $query = "DELETE FROM restaurant WHERE RES_ID = '$del'";
+                          // // echo "s";
+                          $run = $db->query($query);
+
+                          // echo "string";
+                          // $c = 0;
+                          header("location: adminhp.php");
+                        } ?>
+                      </tr>
+                  <?php  } ?>
               </tbody>
             </table>
         </section>
