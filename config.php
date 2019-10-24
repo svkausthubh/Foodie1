@@ -10,6 +10,14 @@
 	die('Connection Failed'.mysqli_error());
 	}
 
+	// $query = "SELECT * FROM restaurant";
+	// $result = $db->query($query);
+	// // $row = $result->fetch_array();
+	// while ($result->fetchInto($row)) {
+	// 	# code...
+	// 	echo $row[0];
+	// }
+	// echo $row[3];
 	
 
 ?>

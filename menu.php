@@ -1,3 +1,9 @@
+<?php
+include("config.php");
+$query = "SELECT * FROM food";
+$result = $db->query($query);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,11 +26,13 @@
                 <section class="menu-list">
                     <table class="table shadow table-hover">
                       <tbody>
-                        <tr class="bg-white">
-                          <td><div><p class="lead">item title</p><p>item description</p></div></td>
-                          <td>Price</td>
-                        </tr>
-                          
+                        <?php
+                          while ($row = $result->fetch_assoc()) {?>
+                            <tr class="bg-white">
+                              <td><div><p class="lead"><?php echo $row["food_NAME"]; ?></p><p><?php echo $row["food_RATING"]; ?></p></div></td>
+                              <td>Price</td>
+                            </tr>
+                        <?php } ?> 
                       </tbody>
                     </table>
                 </section>
