@@ -21,23 +21,23 @@ $t;
         <header class="bg-info  p-3">
             <div class="row ">
               <div class="col-md-8 text-left "><a href="./adminhp.php" class="btn btn-default text-white"><h3><i>Foodie</i></h3></a></div>
-              <div class="col-md-2 text-right"><button class="btn btn-dark">Add</button></div>
+              <div class="col-md-2 text-right"><a href="./addresform.php" class="btn btn-dark">Add</a></div>
               <div class="col-md-2 text-right"> <a class="btn btn-warning " href="./adminlogin.php">Logout</a></div>
             </div>
       </header>
                 
       <section class="hotel-list">
             <table class="table shadow table-hover">
-              <tbody>
+              <tbody >
                   <?php
                     while ($row = $result->fetch_assoc()) {?>
-                      <tr class="bg-white">
-                        <td>
-                          <a href="./adminmenu.php" class="btn btn-default btn-block text-left ">
+                      <tr class="bg-white row m-1">
+                        <td class="col-md-8">
+                          
                             <div>
                               <p class="lead"><?php echo $row["NAME"]; ?></p><p>Location : <?php echo $row["location"]; ?></p>
                             </div>
-                          </a>
+                          
                         </td>
                         
                         <form action="" method="POST">
@@ -45,7 +45,7 @@ $t;
                             $t = $row["RES_ID"];
                            // echo $t; 
                            // $c = $c+1; ?>
-                          <td class="text-right"><input type="submit" name="<?php echo $t; ?>" value="REMOVE" class="btn btn-danger"></td>
+                          <td class="text-right col-md-2"><input type="submit" name="<?php echo $t; ?>" value="REMOVE" class="btn btn-danger"></td>
                         </form>
                         <?php if (isset($_POST[$t])) {
                           $del = $t;
@@ -61,6 +61,7 @@ $t;
                           // $c = 0;
                           header("location: adminhp.php");
                         } ?>
+                        <td class="text-right col-md-2"><a href="./adminmenu.php" class="btn btn-success text-left ">View</a></td>
                       </tr>
                   <?php  } ?>
               </tbody>

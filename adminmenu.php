@@ -13,7 +13,7 @@
         <header class="bg-info  p-3">
                 <div class="row ">
                   <div class="col-md-8 text-left "><a href="./adminhp.php" class="btn btn-default text-white"><h3><i>Foodie</i></h3></a></div>
-                  <div class="col-md-2 text-right"><button class="btn btn-dark">Add</button></div>
+                  <div class="col-md-2 text-right"><a href="./addform.php" class="btn btn-dark">Add</a></div>
               <div class="col-md-2 text-right"> <a class="btn btn-warning " href="./adminlogin.php">Logout</a></div>
                 </div>
           </header>
@@ -22,7 +22,8 @@
                     <table class="table shadow table-hover">
                       <tbody>
                         <tr>
-                          <td><div><p class="lead">item title</p><p>item description</p></div></td>
+                          <td><div><p class="lead">item title</p><p>Rating</p></div></td>
+                          <td class="text-right">Price</td>
                           <td class="text-right"><button class="btn btn-danger">Remove</button></td>
                         </tr>
                           

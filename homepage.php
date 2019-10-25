@@ -15,28 +15,28 @@ $result = $db->query($query);
   <link rel="stylesheet" href="./stylehp.css">
 </head>
 <body>
-        <div class="container">
-        <header class="bg-success  p-3">
-            <div class="row ">
-              <div class="col-md-6 text-left "><a href="./homepage.php" class="btn btn-default text-white"><h3><i>Foodie</i></h3></a></div>
-              <div class="col-md-6 text-right"> <a class="btn btn-warning " href="index.html">Logout</a></div>
-            </div>
-      </header>
-                
+      <div class="container">
+      <header class="bg-success  p-3">
+                <div class="row ">
+                  <div class="col-md-6 text-left "><a href="./homepage.php" class="btn btn-default text-white"><h3><i>Foodie</i></h3></a></div>
+                  <div class="col-md-6 text-right"> <a class="btn btn-warning " href="index.html">Logout</a></div>
+                </div>
+          </header>       
                 <section class="hotel-list">
                     <table class="table shadow table-hover">
                       <tbody>
                         <?php
                         while ($row = $result->fetch_assoc()) {?>
                           <tr class="bg-white">
-                            <td>
-                              <a href="./menu.php" class="btn btn-default btn-block text-left ">
+                            <td >
+                              
                                 <div>
                                   <p class="lead"><?php echo $row["NAME"]; ?></p><p>Location : <?php echo $row["location"]; ?></p>
                                 </div>
-                              </a>
+                              
                             </td>
-                            <td><?php echo $row["RATING"]; ?> / 5</td>
+                            <td class="text-right"><?php echo $row["RATING"]; ?> / 5</td>
+                            <td class="text-right"><a href="./menu.php" class="btn btn-success text-left ">View</a></td>
                           </tr>
                         <?php } ?>
                       </tbody>

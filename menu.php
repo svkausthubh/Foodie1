@@ -29,7 +29,11 @@ $result = $db->query($query);
                         <?php
                           while ($row = $result->fetch_assoc()) {?>
                             <tr class="bg-white">
-                              <td><div><p class="lead"><?php echo $row["food_NAME"]; ?></p><p><?php echo $row["food_RATING"]; ?></p></div></td>
+                              <td>
+                                <div>
+                                  <p class="lead"><?php echo $row["food_NAME"]; ?></p><p>Rating : <?php echo $row["food_RATING"]; ?></p>
+                                </div>
+                              </td>
                               <td>Price</td>
                             </tr>
                         <?php } ?> 
