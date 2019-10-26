@@ -2,6 +2,7 @@
 include("config.php");
 $query = "SELECT * FROM restaurant";
 $result = $db->query($query);
+$t;
 ?>
 
 <!DOCTYPE html>
@@ -36,7 +37,19 @@ $result = $db->query($query);
                               
                             </td>
                             <td class="text-right"><?php echo $row["RATING"]; ?> / 5</td>
-                            <td class="text-right"><a href="./menu.php" class="btn btn-success text-left ">View</a></td>
+                            <form action="menu.php" method="POST">
+                              <?php 
+                              $t = $row["RES_ID"];
+                           // echo $t; 
+                           // $c = $c+1; ?>
+                              <!-- <?php 
+                                // $t = $row["RES_ID"];
+                               // echo $t; 
+                               // $c = $c+1; ?> -->
+                               <input type="hidden" name="id" value="<?php echo $t; ?>" >
+                              <td class="text-right col-md-2"><input type="submit" name="menu" value="VIEW" class="btn btn-success text-left "></td>
+                            </form>
+                            <!-- <td class="text-right"><a href="./menu.php" class="btn btn-success text-left ">View</a></td> -->
                           </tr>
                         <?php } ?>
                       </tbody>

@@ -49,7 +49,7 @@ $t;
                         </form>
                         <?php if (isset($_POST[$t])) {
                           $del = $t;
-                          echo $del;
+                          // echo $del;
                           $query = "DELETE FROM food WHERE RES_ID = '$del'";
                           // // echo "s";
                           $run = $db->query($query);
@@ -61,7 +61,15 @@ $t;
                           // $c = 0;
                           header("location: adminhp.php");
                         } ?>
-                        <td class="text-right col-md-2"><a href="./adminmenu.php" class="btn btn-success text-left ">View</a></td>
+                        <form action="adminmenu.php" method="POST">
+                          <!-- <?php 
+                            // $t = $row["RES_ID"];
+                           // echo $t; 
+                           // $c = $c+1; ?> -->
+                           <input type="hidden" name="id" value="<?php echo $t; ?>" >
+                          <td class="text-right col-md-2"><input type="submit" name="menu" value="VIEW" class="btn btn-success text-left "></td>
+                        </form>
+                        
                       </tr>
                   <?php  } ?>
               </tbody>

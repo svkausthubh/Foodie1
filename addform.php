@@ -1,3 +1,41 @@
+<?php
+include("config.php");
+$ID;
+if(isset($_POST['addmen'])){
+  $ID = mysqli_real_escape_string($db, $_POST['resid']);
+  // $del = mysqli_real_escape_string($db, $_POST['fid']);
+  // $q = "DELETE FROM food WHERE fid = '$del'";
+  // $run = $db->query($q);
+
+}
+if(isset($_POST['add'])){
+        $ID = mysqli_real_escape_string($db, $_POST['res_id']);
+        $fname= mysqli_real_escape_string($db, $_POST['name']);
+        $RES_ID = mysqli_real_escape_string($db, $_POST['res_id']);
+        $rating = mysqli_real_escape_string($db, $_POST['rating']);
+        $query = "INSERT INTO food (fname , rating , RES_ID ) VALUES('$fname','$rating','$RES_ID')";
+        
+        mysqli_query($db, $query);
+        
+        // $_SESSION['success']="Your registered successfully.";
+        // header("location: addform.php");
+        
+
+        
+    }
+// if(isset($_POST['menu'])){
+//   $ID = mysqli_real_escape_string($db, $_POST['id']);
+  
+  
+// }
+// $query = "SELECT * FROM food WHERE RES_ID = '$ID'";
+//   $result = $db->query($query);
+  // $a = $result->fetch_assoc();
+// $query = "SELECT * FROM food WHERE RES_ID = ";
+// $result = $db->query($query);
+// $c=1;
+$t;
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +53,7 @@
                 <section class="p-5 text-info shadow">
                 <div class="add-form ">
                     <h3 class="m-5"><u>Add Food</u></h3>
-                    <form class="p-5" action="adddets.php"  method = "POST">
+                    <form class="p-5" action=""  method = "POST">
                         <div class="form-group row mb-5">
                             <label for="name" class="col-md-2">Name</label>
                             <input type="text" class="form-control col-md-10" name="name" id="" aria-describedby="" placeholder="Enter Food name">
@@ -25,9 +63,9 @@
                         <input type="number" class="form-control col-md-10" min="0.0" max="5.0" step="0.1" name="rating" id="" placeholder="Enter Rating"/>
                         </div>
                         
-                        <div class="form-group row mt-5 mb-5">
-                        <label for="price" class="col-md-2">Price</label>
-                        <input type="number" class="form-control col-md-10" min="0.0" max="1000.0" step="0.1" name="price" id="" placeholder="Enter Price"/>
+                       <!--  <div class="form-group row mt-5 mb-5">
+                        <label for="price" class="col-md-2">Price</label> -->
+                        <input type="hidden" name="res_id" value="<?php echo $ID; ?>" />
                         
                         <input class="btn btn-info col-md-2 mt-5 " type="submit" name="add" value="Add" >
                         </div>
