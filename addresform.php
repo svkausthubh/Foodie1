@@ -15,14 +15,14 @@
                 <section class="p-5 text-info shadow">
                 <div class="add-form ">
                     <h3 class="m-5"><u>Add Restaurant</u></h3>
-                    <form class="p-5" action="adddets.php"  method = "POST">
+                    <form class="p-5" action="addingres.php"  method = "POST">
                         <div class="form-group row mb-5">
                             <label for="name" class="col-md-2">Name of restaurant</label>
-                            <input type="text" class="form-control col-md-10" name="name" id="" aria-describedby="" placeholder="Enter Food name">
+                            <input type="text" class="form-control col-md-10" name="name" id="" aria-describedby="" placeholder="Enter Restaurant name">
                         </div>
                         <div class="form-group row mt-5 mb-5">
                         <label for="location" class="col-md-2">Location</label>
-                        <input type="text" class="form-control col-md-10" name="rating" id="" placeholder="Enter Location"/>
+                        <input type="text" class="form-control col-md-10" name="location" id="" placeholder="Enter Location"/>
                         </div>
                         <div class="form-group row mt-5 mb-5">
                         <label for="rating" class="col-md-2">Rating</label>
@@ -30,6 +30,7 @@
                         <input class="btn btn-info col-md-2 mt-5 " type="submit" name="add" value="Add" >
                         </div>
                     </form>
+                    
         </div>
                 </section>
             

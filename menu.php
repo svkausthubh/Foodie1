@@ -1,7 +1,25 @@
 <?php
 include("config.php");
-$query = "SELECT * FROM food";
-$result = $db->query($query);
+$ID;
+// if(isset($_POST['rem'])){
+//   $ID = mysqli_real_escape_string($db, $_POST['resid']);
+//   $del = mysqli_real_escape_string($db, $_POST['fid']);
+//   $q = "DELETE FROM food WHERE fid = '$del'";
+//   $run = $db->query($q);
+
+// }
+if(isset($_POST['menu'])){
+  $ID = mysqli_real_escape_string($db, $_POST['id']);
+  
+  
+}
+$query = "SELECT * FROM food WHERE RES_ID = '$ID'";
+  $result = $db->query($query);
+  // $a = $result->fetch_assoc();
+// $query = "SELECT * FROM food WHERE RES_ID = ";
+// $result = $db->query($query);
+// $c=1;
+$t;
 ?>
 
 <!DOCTYPE html>
@@ -31,7 +49,7 @@ $result = $db->query($query);
                             <tr class="bg-white">
                               <td>
                                 <div>
-                                  <p class="lead"><?php echo $row["food_NAME"]; ?></p><p>Rating : <?php echo $row["food_RATING"]; ?></p>
+                                  <p class="lead"><?php echo $row["fname"]; ?></p><p>Rating : <?php echo $row["rating"]; ?></p>
                                 </div>
                               </td>
                               <td>Price</td>
