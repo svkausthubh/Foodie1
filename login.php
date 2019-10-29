@@ -1,4 +1,5 @@
 <?php
+session_start();
 include("config.php");
 
    if(isset($_POST['login'])){
@@ -9,17 +10,20 @@ include("config.php");
        
         $result = $db->query($query);
         
-        if(mysqli_num_rows($result) == 0){echo "User dosenot exist";}
+        if(mysqli_num_rows($result) == 0){
+          $_SESSION['lgmsg']="user doesnot exist";
+          header("location: index.php");
+        }
         else{
         
         header("location: homepage.php");
       
        
       
-      // If result matched $myusername and $mypassword, table row must be 1 row
+        // If result matched $myusername and $mypassword, table row must be 1 row
 		
       
-    }
+        }
 
    }
 

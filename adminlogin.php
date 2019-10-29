@@ -1,3 +1,8 @@
+<?php
+ session_start();
+ error_reporting(0);
+ 
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,12 +17,13 @@
 
 
   <div class="container">
-    <header class="bg-info p-1 text-center"><a href="./index.html" class="btn btn-default text-white"><h1>Foodie</h1></a></header>
+    <header class="bg-info p-1 text-center"><a href="./index.php" class="btn btn-default text-white"><h1>Foodie</h1></a></header>
     
     <section class="login p-5 border shadow">
         <div class="login-form ">
           <h3 class="m-5"><u>Admin</u></h3>
           <form class="p-5" action="adlogin.php"  method = "POST">
+            <h3><?php echo $_SESSION['lgmsg']; ?></h3>
             <div class="form-group row mb-5">
               <label for="exampleInputEmail1" class="col-md-2">Email address</label>
                 <input type="email" class="form-control col-md-10" name="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">

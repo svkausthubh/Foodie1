@@ -20,7 +20,7 @@ $t;
       <header class="bg-success  p-3">
                 <div class="row ">
                   <div class="col-md-6 text-left "><a href="./homepage.php" class="btn btn-default text-white"><h3><i>Foodie</i></h3></a></div>
-                  <div class="col-md-6 text-right"> <a class="btn btn-warning " href="index.html">Logout</a></div>
+                  <div class="col-md-6 text-right"> <a class="btn btn-warning " href="logout.php">Logout</a></div>
                 </div>
           </header>       
                 <section class="hotel-list">
