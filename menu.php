@@ -37,28 +37,37 @@ $t;
         <header class="bg-success  p-3">
                 <div class="row ">
                   <div class="col-md-6 text-left "><a href="./homepage.php" class="btn btn-default text-white"><h3><i>Foodie</i></h3></a></div>
-                  <div class="col-md-6 text-right"> <a class="btn btn-warning " href="index.html">Logout</a></div>
+                  <div class="col-md-6 text-right"> <a class="btn btn-warning " href="logout.php">Logout</a></div>
                 </div>
           </header>
                 
-                <section class="menu-list">
-                    <table class="table shadow table-hover">
-                      <tbody>
-                        <?php
-                          while ($row = $result->fetch_assoc()) {?>
-                            <tr class="bg-white">
-                              <td>
-                                <div>
-                                  <p class="lead"><?php echo $row["fname"]; ?></p><p>Rating : <?php echo $row["rating"]; ?></p>
-                                </div>
-                              </td>
-                              <td>Price</td>
-                            </tr>
-                        <?php } ?> 
-                      </tbody>
-                    </table>
-                </section>
+                
             
+                <section class="menu-list">
+                <div class="row">
+                    <div class="col-sm-12">
+                      <div class="card ">
+                      <?php
+                      while ($row = $result->fetch_assoc()) {?>
+                        <div class="card-body border-success shadow m-2 row">
+                          <div class="col-md-8">
+                            <h5 class="card-title"><?php echo $row["fname"]; ?></h5>
+                            <p class="card-text lead">Rating : <span class="lead" id="rate"><?php echo $row["rating"]; ?></span></p>
+                          </div>
+                          <div class="col-md-2">
+                            <p class="card-text lead">Price : XXX</p>
+                          </div>
+                          
+                          <div class="col-md-2">
+                            <button class="btn btn-success " id="rate-btn">RATE</button>
+                          </div>
+                        </div>
+                        <?php } ?>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+
                 <footer class="bg-dark text-white p-3">
                     <div class="row">
                       <div class="col-md-6 text-left"><a href="./aboutpage.html" class="btn btn-success">About Us</a></div>
@@ -66,5 +75,6 @@ $t;
                     </div>
                   </footer>
               </div>
+              <script src="./app.js"></script>
 </body>
 </html>
