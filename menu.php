@@ -52,7 +52,7 @@ $t;
                         <div class="card-body border-success shadow m-2 row">
                           <div class="col-md-8">
                             <h5 class="card-title"><?php echo $row["fname"]; ?></h5>
-                            <p class="card-text lead" id="rate">Rating : <?php echo $row["rating"]; ?></p>
+                            <p class="card-text lead">Rating : <span class="lead" id="rate"><?php echo $row["rating"]; ?></span></p>
                           </div>
                           <div class="col-md-2">
                             <p class="card-text lead">Price : XXX</p>
