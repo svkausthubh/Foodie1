@@ -10,7 +10,7 @@
 </head>
 <body>
         <div class="container">
-        <header class="bg-success p-1 text-center"><a href="./index.html" class="btn btn-default text-white"><h1>Foodie</h1></a></header>
+        <header class="bg-success p-1 text-center"><a href="./index.php" class="btn btn-default text-white"><h1>Foodie</h1></a></header>
                 
                 <section class="text-white p-5">
                     <div class="signup-form ">
