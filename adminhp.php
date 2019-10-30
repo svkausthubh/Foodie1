@@ -22,7 +22,7 @@ $t;
             <div class="row ">
               <div class="col-md-8 text-left "><a href="./adminhp.php" class="btn btn-default text-white"><h3><i>Foodie</i></h3></a></div>
               <div class="col-md-2 text-right"><a href="./addresform.php" class="btn btn-dark">Add</a></div>
-              <div class="col-md-2 text-right"> <a class="btn btn-warning " href="./adminlogin.php">Logout</a></div>
+              <div class="col-md-2 text-right"> <a class="btn btn-warning " href="./logout.php">Logout</a></div>
             </div>
       </header>
                 
