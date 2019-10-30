@@ -23,7 +23,7 @@
         <div class="login-form ">
           <h3 class="text-warning m-5"><u>Login</u></h3>
           <form class="p-5" action="login.php"  method = "POST">
-            <h3><?php echo $_SESSION['lgmsg']; ?></h3>
+            <p class="lead text-center text-warning"><?php echo $_SESSION['lgmsg']; ?></p>
             <div class="form-group row mb-5">
               <label for="exampleInputEmail1" class="col-md-2">Email address</label>
                 <input type="email" class="form-control col-md-10" name="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">

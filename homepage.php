@@ -23,39 +23,37 @@ $t;
                   <div class="col-md-6 text-right"> <a class="btn btn-warning " href="logout.php">Logout</a></div>
                 </div>
           </header>       
+                
+
                 <section class="hotel-list">
-                    <table class="table shadow table-hover">
-                      <tbody>
-                        <?php
-                        while ($row = $result->fetch_assoc()) {?>
-                          <tr class="bg-white">
-                            <td >
-                              
-                                <div>
-                                  <p class="lead"><?php echo $row["NAME"]; ?></p><p>Location : <?php echo $row["location"]; ?></p>
-                                </div>
-                              
-                            </td>
-                            <td class="text-right"><?php echo $row["RATING"]; ?> / 5</td>
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <div class="card ">
+                      <?php
+                      while ($row = $result->fetch_assoc()) {?>
+                        <div class="card-body border-success shadow m-2 row">
+                          <div class="col-md-8">
+                            <h3 class="card-title"><?php echo $row["NAME"]; ?></h3>
+                            <p class="card-text lead">Rating : <?php echo $row["RATING"]; ?></p>
+                          </div>
+
+                          <div class="col-md-4 text-right ">
                             <form action="menu.php" method="POST">
-                              <?php 
-                              $t = $row["RES_ID"];
-                           // echo $t; 
-                           // $c = $c+1; ?>
-                              <!-- <?php 
-                                // $t = $row["RES_ID"];
-                               // echo $t; 
-                               // $c = $c+1; ?> -->
-                               <input type="hidden" name="id" value="<?php echo $t; ?>" >
-                              <td class="text-right col-md-2"><input type="submit" name="menu" value="VIEW" class="btn btn-success text-left "></td>
-                            </form>
-                            <!-- <td class="text-right"><a href="./menu.php" class="btn btn-success text-left ">View</a></td> -->
-                          </tr>
+                                <?php 
+                                $t = $row["RES_ID"];
+                                ?> 
+                                <input type="hidden" name="id" value="<?php echo $t; ?>" >
+                                <input type="submit" name="menu" value="VIEW" class="btn btn-success ">
+                              </form>
+                            
+                          </div>
+                        </div>
                         <?php } ?>
-                      </tbody>
-                    </table>
+                      </div>
+                    </div>
+                  </div>
                 </section>
-            
+
                 <footer class="bg-dark text-white p-3">
                     <div class="row">
                       <div class="col-md-6 text-left"><a href="./aboutpage.html" class="btn btn-success">About Us</a></div>

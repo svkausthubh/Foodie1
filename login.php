@@ -11,7 +11,7 @@ include("config.php");
         $result = $db->query($query);
         
         if(mysqli_num_rows($result) == 0){
-          $_SESSION['lgmsg']="user doesnot exist";
+          $_SESSION['lgmsg']="Invalid username or password";
           header("location: index.php");
         }
         else{
