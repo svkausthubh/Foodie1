@@ -1,5 +1,10 @@
 <?php
 include("config.php");
+include("rating.php");
+session_start();
+if (!isset($_SESSION['login'])) {
+  header("location: index.php");
+}
 $query = "SELECT * FROM restaurant";
 $result = $db->query($query);
 $t;
