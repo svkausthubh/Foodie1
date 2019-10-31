@@ -10,7 +10,7 @@ session_start();
          
           $result = $db->query($query);
           
-          if(mysqli_num_rows($result) == 0){$_SESSION['lgmsg']="password incorrect";
+          if(mysqli_num_rows($result) == 0){$_SESSION['admsg']="password incorrect";
           header("location: adminlogin.php");}
           else{
           
@@ -24,7 +24,7 @@ session_start();
           }
         }
         else{
-          $_SESSION['lgmsg']="admin dosen't exist";
+          $_SESSION['admsg']="admin dosen't exist";
           header("location: adminlogin.php");
         }
 
