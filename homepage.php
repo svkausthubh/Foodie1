@@ -2,6 +2,7 @@
 include("config.php");
 include("rating.php");
 session_start();
+error_reporting(0);
 if (!isset($_SESSION['login'])) {
   header("location: index.php");
 }
