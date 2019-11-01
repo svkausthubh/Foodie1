@@ -10,7 +10,7 @@
         $query = "INSERT INTO customer (email , USER_NAME , USER_PASSWORD) VALUES('$email','$USER_NAME','$USER_PASSWORD')";
         
         mysqli_query($db, $query);
-        $_SESSION['lgmsg']="Your registered successfully.";
+        $_SESSION['lg']="Your registered successfully.";
         // $res="Your registered successfully.";
         header("location: index.php");
         

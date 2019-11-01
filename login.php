@@ -11,11 +11,12 @@ include("config.php");
         $result = $db->query($query);
         
         if(mysqli_num_rows($result) == 0){
-          $_SESSION['lgmsg']="Invalid username or password";
+          $_SESSION['lg']="Invalid username or password";
+          
           header("location: index.php");
         }
         else{
-        
+        $_SESSION['login']="loggedin";
         header("location: homepage.php");
       
        
