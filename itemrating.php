@@ -12,6 +12,7 @@
 		$nr++;
 		
 		$rate = ($rate+$mnrating)/$nr;
+		$rate = round($rate,2);
 		$qr = "UPDATE food SET rating='$rate', nrated = '$nr' WHERE fid = '$fid'";
     	$ru = $db->query($qr);
     	header("location: menu.php");

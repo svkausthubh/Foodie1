@@ -1,7 +1,36 @@
 <?php
 include("config.php");
-$query = "SELECT * FROM restaurant";
-$result = $db->query($query);
+session_start();
+error_reporting(0);
+if (!isset($_SESSION['adlogin'])) {
+  header("location: adminlogin.php");
+}
+
+ if (isset($_POST['rem'])) {
+  $del = mysqli_real_escape_string($db, $_POST['resid']);;
+  // echo $del;
+  $query = "DELETE FROM food WHERE RES_ID = '$del'";
+   // // echo "s";
+  $run = $db->query($query);
+  $query = "DELETE FROM restaurant WHERE RES_ID = '$del'";
+   // echo "s";
+  $run = $db->query($query);
+
+  }
+                          
+
+if(isset($_POST['menu'])){
+  $_SESSION['admenu'] = mysqli_real_escape_string($db, $_POST['id']);
+  // echo $_SESSION['admenu'];
+  header("location: adminmenu.php");
+  
+}
+if (isset($_SESSION['adlogin'])) {
+  $query = "SELECT * FROM restaurant";
+  $result = $db->query($query);
+  // header("location: adminlogin.php");
+}
+
 // $c=1;
 $t;
 ?>
@@ -45,9 +74,11 @@ $t;
                             $t = $row["RES_ID"];
                            // echo $t; 
                            // $c = $c+1; ?>
-                          <td class="text-right col-md-2"><input type="submit" name="<?php echo $t; ?>" value="REMOVE" class="btn btn-danger"></td>
+                           <input type="hidden" name="resid" value="<?php echo $t; ?>" >
+                              
+                          <td class="text-right col-md-2"><input type="submit" name="rem" value="REMOVE" class="btn btn-danger"></td>
                         </form>
-                        <?php if (isset($_POST[$t])) {
+                        <!-- <?php if (isset($_POST[$t])) {
                           $del = $t;
                           // echo $del;
                           $query = "DELETE FROM food WHERE RES_ID = '$del'";
@@ -59,9 +90,10 @@ $t;
 
                           // echo "string";
                           // $c = 0;
-                          header("location: adminhp.php");
-                        } ?>
-                        <form action="adminmenu.php" method="POST">
+                          if($run){header("location: adminhp.php");}
+                          
+                        } ?> -->
+                        <form action="" method="POST">
                           <!-- <?php 
                             // $t = $row["RES_ID"];
                            // echo $t; 

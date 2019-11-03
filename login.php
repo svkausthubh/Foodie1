@@ -9,7 +9,8 @@ include("config.php");
         $query = "SELECT * FROM customer WHERE email = '$email' and USER_PASSWORD = '$USER_PASSWORD'";
        
         $result = $db->query($query);
-        
+        $row = $result->fetch_assoc();
+        // echo $row["USER_NAME"];
         if(mysqli_num_rows($result) == 0){
           $_SESSION['lg']="Invalid username or password";
           
@@ -18,6 +19,9 @@ include("config.php");
         else{
         $_SESSION['login']="loggedin";
         $_SESSION['email']=$email;
+        $_SESSION['user']=$row["USER_NAME"];
+
+
         header("location: homepage.php");
       
        

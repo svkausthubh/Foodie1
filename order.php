@@ -2,6 +2,7 @@
 	include("config.php");
 	session_start();
 	$price = 0;
+	$orderid = "#".rand(1000000,9999999); 
 	if(isset($_POST['submit'])){//to run PHP script on submit
 		if(!empty($_POST['check_list'])){
 			// Loop to store and display values of individual checked checkbox.
@@ -10,16 +11,19 @@
 				$r = $db->query($q);
 				$row = $r->fetch_assoc();
 				$price = $price+$row["price"];
-				
+				$fitem = $row["fname"];
+				$qit = "INSERT INTO orderitems (items , orderid ) VALUES('$fitem','$orderid')";
+				$rit = $db->query($qit);
+
 
 			}
 		}
-		$orderid = "#".rand(1000000,9999999); 
+		
 		$email = $_SESSION['email'];
 		$qr ="INSERT INTO ordering (email , orderid , bill ) VALUES('$email','$orderid','$price')";
     	$ru = $db->query($qr);
     	// echo "string";
-    	header("location: menu.php");
+    	header("location: orderList.php");
 	}
 
 ?>

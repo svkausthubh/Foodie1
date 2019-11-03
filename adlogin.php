@@ -4,16 +4,18 @@ session_start();
    if(isset($_POST['login'])){
         $email = mysqli_real_escape_string($db, $_POST['email']);
         
-        $USER_PASSWORD = mysqli_real_escape_string($db, $_POST['password']);
-        if($email == "sameer@gmail.com"){
-          $query = "SELECT * FROM customer WHERE email = '$email' and USER_PASSWORD = '$USER_PASSWORD'";
+        $password = mysqli_real_escape_string($db, $_POST['password']);
+        $query = "SELECT * FROM admin WHERE email = '$email'";
+        $result = $db->query($query);
+        if(mysqli_num_rows($result) != 0){
+          $q = "SELECT * FROM admin WHERE email = '$email' and password = '$password'";
          
-          $result = $db->query($query);
+          $r = $db->query($q);
           
-          if(mysqli_num_rows($result) == 0){$_SESSION['admsg']="password incorrect";
+          if(mysqli_num_rows($r) == 0){$_SESSION['admsg']="password incorrect";
           header("location: adminlogin.php");}
           else{
-          
+            $_SESSION['adlogin'] = "loggedin";
             header("location: adminhp.php");
         
          
