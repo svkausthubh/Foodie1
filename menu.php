@@ -1,5 +1,6 @@
 <?php
 include("config.php");
+session_start();
 $ID;
 // if(isset($_POST['rem'])){
 //   $ID = mysqli_real_escape_string($db, $_POST['resid']);
@@ -8,13 +9,14 @@ $ID;
 //   $run = $db->query($q);
 
 // }
-if(isset($_POST['menu'])){
-  $ID = mysqli_real_escape_string($db, $_POST['id']);
-  
+if(isset($_SESSION['menu'])){
+  $ID = $_SESSION['menu'];
+  $query = "SELECT * FROM food WHERE RES_ID = '$ID'";
+  $reso = $db->query($query);
+  $result = $db->query($query);
   
 }
-$query = "SELECT * FROM food WHERE RES_ID = '$ID'";
-  $result = $db->query($query);
+
   // $a = $result->fetch_assoc();
 // $query = "SELECT * FROM food WHERE RES_ID = ";
 // $result = $db->query($query);
@@ -44,6 +46,7 @@ $t;
                   <button type="button" class="btn btn-light text-success" data-toggle="modal" data-target="#order-modal">
                                 Order 
                               </button>
+                            
                               <div class="modal" id="order-modal">
                                 <div class="modal-dialog">
                                   <div class="modal-content">
@@ -51,17 +54,22 @@ $t;
                                       <h4 class="modal-title">Order</h4>
                                       <button type="button" class="close" data-dismiss="modal">&times;</button>
                                     </div>
-                                    <div class="modal-body">
-                                      <div class="container-fluid row">
-                                      <div class="col-md-2"><input type="checkbox"></div>
-                                      <div class="col-md-8 text-left strong">foodname</div> 
-                                      <div class="col-md-2">Price</div>
-                                      </div>
-                                      <br><input type="submit" value="Order" class="btn btn-success">
-                                      </div>
+                                    <form action="order.php" method="POST">
+                                      <div class="modal-body">
+                                        <div class="container-fluid row">
+                                        <?php while ($r = $reso->fetch_assoc()) { ?>
+                                          <div class="col-md-2"><input type="checkbox" name="check_list[]" value="<?php echo $r["fid"]; ?>"></div>
+                                          <div class="col-md-8 text-left strong"><?php echo $r["fname"]; ?></div> 
+                                          <div class="col-md-2"><?php echo $r["price"]; ?></div>
+                                        <?php }?>
+                                        </div>
+                                        <br><input type="submit" value="Order" name="submit" class="btn btn-success">
+                                        </div>
+                                      </form>
                                   </div>
                                 </div>
                               </div>
+                            
                     </div>
                   <div class="col-md-2 text-right"> <a class="btn btn-warning " href="logout.php">Logout</a></div>
                 </div>
@@ -74,37 +82,43 @@ $t;
                     <div class="col-sm-12">
                       <div class="card ">
                       <?php
+                      $i = 0;
                       while ($row = $result->fetch_assoc()) {?>
+                        
                         <div class="card-body border-success shadow m-2 row">
                           <div class="col-md-8">
                             <h5 class="card-title"><?php echo $row["fname"]; ?></h5>
-                            <p class="card-text lead">Rating : <span class="lead" id="rate"><?php echo $row["rating"]; ?></span></p>
+                            <p class="card-text lead">Rating : <span class="lead" id="rate"><?php echo $row["rating"]." (".$row["nrated"]." review)"; ?></span></p>
                           </div>
                           <div class="col-md-2">
-                            <p class="card-text lead">Price : XXX</p>
+                            <p class="card-text lead">Price : <?php echo $row["price"]; ?></p>
                           </div>
                           
                           <div class="col-md-2">
-                              <button type="button" class="btn btn-success" data-toggle="modal" data-target="#rate-modal">
+                              <button type="button" class="btn btn-success" data-toggle="modal" data-target="<?php echo "#rate-modal".$i; ?>">
                                 Rate 
                               </button>
-                              <div class="modal" id="rate-modal">
+                              <div class="modal" id="<?php echo "rate-modal".$i ?>">
                                 <div class="modal-dialog">
                                   <div class="modal-content">
                                     <div class="modal-header">
                                       <h4 class="modal-title">Rate <?php echo $row["fname"]; ?></h4>
                                       <button type="button" class="close" data-dismiss="modal">&times;</button>
                                     </div>
-                                    <div class="modal-body">
-                                      <input type="number" min=1 max=5 step=0.1 placeholder="Enter Rating" class="form-control">
-                                      <br><input type="submit" value="Submit" class="btn btn-success">
-                                    </div>
+                                    <form action="itemrating.php" method="POST">
+                                      <div class="modal-body">
+                                        
+                                        <input type="number" min=1 max=5 step=0.1 placeholder="Enter Rating" name="mnrating" class="form-control">
+                                        <input type="hidden" name="fid" value="<?php echo $row["fid"]; ?>">
+                                        <br><input type="submit" name="itrate" value="Submit" class="btn btn-success">
+                                      </div>
+                                    </form>
                                   </div>
                                 </div>
                               </div>
                           </div>
                         </div>
-                        <?php } ?>
+                        <?php $i++; } ?>
                       </div>
                     </div>
                   </div>

@@ -17,6 +17,7 @@ include("config.php");
         }
         else{
         $_SESSION['login']="loggedin";
+        $_SESSION['email']=$email;
         header("location: homepage.php");
       
        
