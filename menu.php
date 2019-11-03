@@ -30,7 +30,7 @@ $t;
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Foodie | Home</title>
+    <title>Foodie | Menu</title>
     <link rel="stylesheet" href="./bootstraplitera.min.css">
     <link rel="stylesheet" href="./stylehp.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -60,7 +60,7 @@ $t;
                                         <?php while ($r = $reso->fetch_assoc()) { ?>
                                           <div class="col-md-2"><input type="checkbox" name="check_list[]" value="<?php echo $r["fid"]; ?>"></div>
                                           <div class="col-md-8 text-left strong"><?php echo $r["fname"]; ?></div> 
-                                          <div class="col-md-2"><?php echo $r["price"]; ?></div>
+                                          <div class="col-md-2 p-1">Rs.<?php echo $r["price"]; ?></div>
                                         <?php }?>
                                         </div>
                                         <br><input type="submit" value="Order" name="submit" class="btn btn-success">
@@ -88,10 +88,10 @@ $t;
                         <div class="card-body border-success shadow m-2 row">
                           <div class="col-md-8">
                             <h5 class="card-title"><?php echo $row["fname"]; ?></h5>
-                            <p class="card-text lead">Rating : <span class="lead" id="rate"><?php echo $row["rating"]." (".$row["nrated"]." review)"; ?></span></p>
+                            <p class="card-text lead">Rating : <span class="lead" id="rate"><?php echo $row["rating"]." (".$row["nrated"]." Ratings)"; ?></span></p>
                           </div>
                           <div class="col-md-2">
-                            <p class="card-text lead">Price : <?php echo $row["price"]; ?></p>
+                            <p class="card-text lead">Rs.<?php echo $row["price"]; ?>/-</p>
                           </div>
                           
                           <div class="col-md-2">
