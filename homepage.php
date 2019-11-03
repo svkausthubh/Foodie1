@@ -2,6 +2,11 @@
 include("config.php");
 include("rating.php");
 session_start();
+if(isset($_POST['menu'])){
+  $_SESSION['menu'] = mysqli_real_escape_string($db, $_POST['id']);
+  header("location: menu.php");
+  
+}
 error_reporting(0);
 if (!isset($_SESSION['login'])) {
   header("location: index.php");
@@ -44,7 +49,7 @@ $t;
                           </div>
 
                           <div class="col-md-4 text-right ">
-                            <form action="menu.php" method="POST">
+                            <form action="" method="POST">
                                 <?php 
                                 $t = $row["RES_ID"];
                                 ?> 
