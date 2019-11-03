@@ -7,6 +7,7 @@ if(isset($_POST['menu'])){
   header("location: menu.php");
   
 }
+error_reporting(0);
 if (!isset($_SESSION['login'])) {
   header("location: index.php");
 }
