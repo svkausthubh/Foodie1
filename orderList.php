@@ -30,10 +30,12 @@
                     <div class="col-sm-12">
                       <div class="card ">
                         <div class="card-body border-success shadow m-2 row">
-                          <div class="col-md-8">
+                          <div class="col-md-4">
                             <h3 class="card-title"><?php echo $row["orderid"]; ?></h3>
                           </div>
-
+                          <div class="col-md-4">
+                          <h5>RESRAURANT NAME HERE</h5>
+                          </div>
                           <div class="col-md-4 text-right ">
                             <?php 
                              $oid = $row["orderid"];  
@@ -51,7 +53,7 @@
                             <?php }?>
 
                             <hr>
-                            <p class="card-text lead text-center"><?php echo $row["bill"]; ?></p>
+                            <p class="card-text lead text-center">Rs.<?php echo $row["bill"]; ?>/-</p>
                             <hr>
                           </div>
                         </div>

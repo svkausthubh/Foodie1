@@ -46,29 +46,29 @@ $t;
   <link rel="stylesheet" href="./styleadmin.css">
 </head>
 <body>
-        <div class="container">
+    <div class="container">
         <header class="bg-info  p-3">
             <div class="row ">
               <div class="col-md-8 text-left "><a href="./adminhp.php" class="btn btn-default text-white"><h3><i>Foodie</i></h3></a></div>
               <div class="col-md-2 text-right"><a href="./addresform.php" class="btn btn-dark">Add</a></div>
               <div class="col-md-2 text-right"> <a class="btn btn-warning " href="./logout.php">Logout</a></div>
             </div>
-      </header>
+        </header>
                 
-      <section class="hotel-list">
-            <table class="table shadow table-hover">
-              <tbody >
+        <section class="hotel-list">
+            <div class="row">
+              <div class="col-sm-12" >
+              <div class="card">
                   <?php
                     while ($row = $result->fetch_assoc()) {?>
-                      <tr class="bg-white row m-1">
-                        <td class="col-md-8">
+                    <div class="card-body border-success shadow m-2 row">
+                        <div class="col-sm-8">
                           
-                            <div>
-                              <p class="lead"><?php echo $row["NAME"]; ?></p><p>Location : <?php echo $row["location"]; ?></p>
-                            </div>
-                          
-                        </td>
-                        
+                        <h3 class="card-title"><?php echo $row["NAME"]; ?></h3>
+                              <div><p class="card-text lead">Location : <?php echo $row["location"]; ?></p>
+                              <p class="card-text lead">Rating : <?php echo $row["RATING"]; ?></p></div>
+                        </div>
+                        <div class="col-sm-2">
                         <form action="" method="POST">
                           <?php 
                             $t = $row["RES_ID"];
@@ -78,6 +78,7 @@ $t;
                               
                           <td class="text-right col-md-2"><input type="submit" name="rem" value="REMOVE" class="btn btn-danger"></td>
                         </form>
+                        </div>
                         <!-- <?php if (isset($_POST[$t])) {
                           $del = $t;
                           // echo $del;
@@ -93,6 +94,7 @@ $t;
                           if($run){header("location: adminhp.php");}
                           
                         } ?> -->
+                        <div class="col-sm-2">
                         <form action="" method="POST">
                           <!-- <?php 
                             // $t = $row["RES_ID"];
@@ -101,19 +103,20 @@ $t;
                            <input type="hidden" name="id" value="<?php echo $t; ?>" >
                           <td class="text-right col-md-2"><input type="submit" name="menu" value="VIEW" class="btn btn-success text-left "></td>
                         </form>
-                        
-                      </tr>
+                        </div>
+                    </div>
                   <?php  } ?>
-              </tbody>
-            </table>
+              </div>
+              </div>
+            </div>
         </section>
             
-                <footer class="bg-dark text-white p-3">
+        <footer class="bg-dark text-white p-3">
                     <div class="row">
                       <div class="col-md-6 text-left"><a href="./aboutpage.html" class="btn btn-info">About Us</a></div>
                       <div class="col-md-6 text-right"> &copy; Copyright , 2019.</div>
                     </div>
                   </footer>
-              </div>
+      </div>
 </body>
 </html>

@@ -38,7 +38,7 @@ $t;
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-        <div class="container">
+      <div class="container">
         <header class="bg-success  p-3">
                 <div class="row ">
                   <div class="col-md-8 text-left "><a href="./homepage.php" class="btn btn-default text-white"><h3><i>Foodie</i></h3></a></div>
@@ -73,19 +73,16 @@ $t;
                     </div>
                   <div class="col-md-2 text-right"> <a class="btn btn-warning " href="logout.php">Logout</a></div>
                 </div>
-          </header>
-                
-                
-            
-                <section class="menu-list">
+        </header>
+
+        <section class="menu-list">
                 <div class="row">
                     <div class="col-sm-12">
                       <div class="card ">
-                      <?php
+                    <?php
                       $i = 0;
                       while ($row = $result->fetch_assoc()) {?>
-                        
-                        <div class="card-body border-success shadow m-2 row">
+                      <div class="card-body border-success shadow m-2 row">
                           <div class="col-md-8">
                             <h5 class="card-title"><?php echo $row["fname"]; ?></h5>
                             <p class="card-text lead">Rating : <span class="lead" id="rate"><?php echo $row["rating"]." (".$row["nrated"]." Ratings)"; ?></span></p>
@@ -117,20 +114,19 @@ $t;
                                 </div>
                               </div>
                           </div>
-                        </div>
-                        <?php $i++; } ?>
+                      </div>
+                    <?php $i++; } ?>
                       </div>
                     </div>
-                  </div>
-                </section>
+                </div>
+        </section>
 
-                <footer class="bg-dark text-white p-3">
+        <footer class="bg-dark text-white p-3">
                     <div class="row">
                       <div class="col-md-6 text-left"><a href="./aboutpage.html" class="btn btn-success">About Us</a></div>
                       <div class="col-md-6 text-right"> &copy;Copyright , 2019.</div>
                     </div>
-                  </footer>
-              </div>
-              
+        </footer>
+      </div>        
 </body>
 </html>
