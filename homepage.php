@@ -24,7 +24,7 @@ $t;
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Foodie | Home</title>
     <link rel="stylesheet" href="./bootstraplitera.min.css">
-  <link rel="stylesheet" href="./stylehp.css">
+    <link rel="stylesheet" href="./stylehp.css">
 </head>
 <body>
       <div class="container">

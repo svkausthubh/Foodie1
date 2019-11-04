@@ -34,7 +34,17 @@
                             <h3 class="card-title"><?php echo $row["orderid"]; ?></h3>
                           </div>
                           <div class="col-md-4">
-                          <h5>RESRAURANT NAME HERE</h5>
+                            <?php 
+                              $oiditem = $row["orderid"];  
+                              $qresitem = "SELECT * FROM orderitems WHERE orderid = '$oiditem'";
+                              $resitem = $db->query($qresitem);
+                              $rowresitem = $resitem->fetch_assoc();
+                              $RES_ID = $rowresitem["Resid"];
+                              $qres = "SELECT * FROM restaurant WHERE RES_ID = '$RES_ID'";
+                              $res = $db->query($qres);
+                              $rowres = $res->fetch_assoc();
+                            ?>
+                          <h5><?php echo $rowres["NAME"]; ?></h5>
                           </div>
                           <div class="col-md-4 text-right ">
                             <?php 
