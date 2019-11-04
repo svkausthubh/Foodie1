@@ -13,7 +13,9 @@ if(isset($_POST['add'])){
         $fname= mysqli_real_escape_string($db, $_POST['name']);
         $RES_ID = mysqli_real_escape_string($db, $_POST['res_id']);
         $rating = mysqli_real_escape_string($db, $_POST['rating']);
-        $query = "INSERT INTO food (fname , rating , RES_ID ) VALUES('$fname','$rating','$RES_ID')";
+        $price = mysqli_real_escape_string($db, $_POST['price']);
+        // echo $price;
+        $query = "INSERT INTO food (fname , rating , RES_ID , price ) VALUES('$fname','$rating','$RES_ID' , '$price')";
         
         mysqli_query($db, $query);
         
@@ -48,7 +50,7 @@ $t;
 </head>
 <body>
         <div class="container">
-                <header class="bg-info p-1 text-center"><a href="./adminhp.php" class="btn btn-default text-white"><h1>Foodie</h1></a></header>
+                <header class="bg-info p-1 text-center"><a href="./adminmenu.php" class="btn btn-default text-white"><h1>Foodie</h1></a></header>
                 
                 <section class="p-5 text-info shadow">
                 <div class="add-form ">
@@ -61,6 +63,10 @@ $t;
                         <div class="form-group row mt-5 mb-5">
                         <label for="rating" class="col-md-2">Rating</label>
                         <input type="number" class="form-control col-md-10" min="0.0" max="5.0" step="0.1" name="rating" id="" placeholder="Enter Rating"/>
+                        </div>
+                        <div class="form-group row mb-5">
+                            <label for="price" class="col-md-2">Price</label>
+                            <input type="number" class="form-control col-md-10" min="0.0" max="1000.0" name="price" id="" aria-describedby="" placeholder="Price">
                         </div>
                         
                        <!--  <div class="form-group row mt-5 mb-5">

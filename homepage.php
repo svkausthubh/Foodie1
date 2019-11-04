@@ -30,8 +30,9 @@ $t;
       <div class="container">
       <header class="bg-success  p-3">
                 <div class="row ">
-                  <div class="col-md-6 text-left "><a href="./homepage.php" class="btn btn-default text-white"><h3><i>Foodie</i></h3></a></div>
-                  <div class="col-md-6 text-right"> <a class="btn btn-warning " href="logout.php">Logout</a></div>
+                  <div class="col-md-8 text-left "><a href="./homepage.php" class="btn btn-default text-white"><h3><i>Foodie</i></h3></a></div>
+                  <div class="col-md-2 text-center"><h3 class="lead text-light pt-3"><?php echo"Hi ".$_SESSION['user'];?></h3></div>
+                  <div class="col-md-2 text-right pt-3"> <a class="btn btn-warning " href="logout.php">Logout</a></div>
                 </div>
           </header>       
                 
@@ -45,7 +46,9 @@ $t;
                         <div class="card-body border-success shadow m-2 row">
                           <div class="col-md-8">
                             <h3 class="card-title"><?php echo $row["NAME"]; ?></h3>
-                            <p class="card-text lead">Rating : <?php echo $row["RATING"]; ?></p>
+                            <div><p class="card-text lead">Location : <?php echo $row["location"]; ?></p>
+                            
+                            <p class="card-text lead">Rating : <?php echo $row["RATING"]; ?></p></div>
                           </div>
 
                           <div class="col-md-4 text-right ">
@@ -67,8 +70,9 @@ $t;
 
                 <footer class="bg-dark text-white p-3">
                     <div class="row">
-                      <div class="col-md-6 text-left"><a href="./aboutpage.html" class="btn btn-success">About Us</a></div>
-                      <div class="col-md-6 text-right"> &copy; Copyright , 2019.</div>
+                      <div class="col-md-8 text-left"><a href="./aboutpage.html" class="btn btn-success">About Us</a></div>
+                      <div class="col-md-2 text-right"> <a class="btn btn-success" href="orderList.php">My Orders</a></div>
+                      <div class="col-md-2 text-right pt-3"> &copy; Copyright , 2019.</div>
                     </div>
                   </footer>
               </div>

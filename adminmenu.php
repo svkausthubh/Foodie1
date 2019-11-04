@@ -1,6 +1,8 @@
 <?php
 include("config.php");
+session_start();
 $ID;
+
 if(isset($_POST['rem'])){
   $ID = mysqli_real_escape_string($db, $_POST['resid']);
   $del = mysqli_real_escape_string($db, $_POST['fid']);
@@ -8,13 +10,22 @@ if(isset($_POST['rem'])){
   $run = $db->query($q);
 
 }
-if(isset($_POST['menu'])){
-  $ID = mysqli_real_escape_string($db, $_POST['id']);
-  
+if(isset($_SESSION['admenu'])){
+
+  $ID = $_SESSION['admenu'];
+  // echo $ID;
+  $query = "SELECT * FROM food WHERE RES_ID = '$ID'";
+  // $reso = $db->query($query);
+  $result = $db->query($query);
   
 }
-$query = "SELECT * FROM food WHERE RES_ID = '$ID'";
-  $result = $db->query($query);
+// if(isset($_POST['menu'])){
+//   $ID = mysqli_real_escape_string($db, $_POST['id']);
+  
+  
+// }
+// $query = "SELECT * FROM food WHERE RES_ID = '$ID'";
+//   $result = $db->query($query);
   // $a = $result->fetch_assoc();
 // $query = "SELECT * FROM food WHERE RES_ID = ";
 // $result = $db->query($query);
@@ -50,8 +61,8 @@ $t;
                         <?php
                           while ($row = $result->fetch_assoc()) {?>
                             <tr>
-                              <td><div><p class="lead"><?php echo $row["fname"]; ?></p><p><?php echo $row["rating"]; ?></p></div></td>
-                              <td class="text-right">PRICE</td>
+                              <td><div><p class="lead"><?php echo $row["fname"]; ?></p></div></td>
+                              <td class="text-right">Rs.<?php echo $row["price"]; ?></td>
                              <!--  <td class="text-right"><button class="btn btn-danger">Remove</button></td> -->
                               <form action="" method="POST">
                             <?php 

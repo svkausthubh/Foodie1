@@ -9,7 +9,7 @@
         
         mysqli_query($db, $query);
         
-        $_SESSION['success']="Your registered successfully.";
+        // $_SESSION['success']="Your registered successfully.";
         header("location: addresform.php");
         
 
