@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Foodie | Home</title>
+    <title>Foodie | SignUp</title>
     <link rel="stylesheet" href="./bootstraplitera.min.css">
   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
         <div class="container">
-          <header class="bg-success p-1 text-center"><a href="./index.php" class="btn btn-default text-white"><h1>Foodie</h1></a></header>
+        <header class="bg-success p-1 text-center"><a href="./index.php" class="btn btn-default text-white"><h1>Foodie</h1></a></header>
                 
                 <section class="text-white p-5">
                     <div class="signup-form ">
